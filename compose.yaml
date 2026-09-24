@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: week07-lab-db
+    environment:
+      POSTGRES_DB: ${DB_NAME:-week07-lab}
+      POSTGRES_USER: ${DB_USER:-postgres}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-postgres}
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    volumes:
+      - week07-lab-data:/var/lib/postgresql/data
+
+volumes:
+  week07-lab-data:
